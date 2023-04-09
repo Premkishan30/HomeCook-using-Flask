@@ -1,0 +1,98 @@
+/* Set font styles */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin: 0;
+}
+
+/* Set background and text colors */
+body {
+  background-color: #f7f7f7;
+  color: #333333;
+}
+
+/* Add padding and border to the main content area */
+div.Ingredients, div.Step {
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 30px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+/* Style the recipe title */
+h1 {
+  font-size: 40px;
+  margin: 50px 0 30px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Style the recipe author */
+h2 {
+  font-size: 24px;
+  margin: 0;
+  text-align: center;
+}
+
+/* Style the recipe email */
+h4 {
+  font-size: 18px;
+  margin: 0;
+  text-align: center;
+}
+
+/* Style the ingredient list */
+div.Ingredients h2 {
+  font-size: 24px;
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+div.Ingredients h5 {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+/* Style the recipe steps */
+div.Step h2 {
+  font-size: 24px;
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+div.Step h4 {
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+/* Style the download link */
+a {
+  display: block;
+  margin-top: 50px;
+  font-size: 24px;
+  text-align: center;
+  color: #ffffff;
+  text-color:#000000;
+  /*background-color: #ffcc33;*/
+  padding: 15px 50px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+a.download:hover {
+  background-color: #e6b800;
+}

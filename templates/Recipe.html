@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Your Searched Recipe</title>
+    {% include 'navbar.html' %}
+  </head>
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Recipe.css') }}">
+  <body>
+    <h1>{{ data_d["Recipe Name"] }}</h1>
+    <h2>By {{ data_d["Name"] }}</h2>
+    <h4>{{ data_d["Email"] }}</h4>
+    <div id="Ingredients" class="Ingredients">
+      <h2>Ingredients:</h2>
+      <h5>{{ data_d["Ingredients"] }}</h5>
+    </div>
+    <div class="Step 1">
+      <h2>Step 1</h2>
+      <h4>{{ data_d["Step 1"] }}</h4>
+    </div>
+    <div class="Step 2">
+      <h2>Step 2</h2>
+      <h4>{{ data_d["Step 2"] }}</h4>
+    </div>
+    <div class="Step 3">
+      <h2>Step 3</h2>
+      <h4>{{ data_d["Step 3"] }}</h4>
+    </div>
+    <div class="Step 4">
+      <h2>Step 4</h2>
+      <h4>{{ data_d["Step 4"] }}</h4>
+    </div>
+    <a class="download" href="{{ url_for('download') }}">Download Recipe</a>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Recipes
+  {% block title %}{% endblock %}//not in use for now
+ </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
+  <header>
+  {% include 'navbar.html' %}
+    </header>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <script>
+            //displaying sweetalert using flash messages
+                var messages = {{ messages|tojson }};
+                for (var i = 0; i < messages.length; i++) {
+                    if (messages[i][0] === 'success') {
+                        Swal.fire({
+                            icon: 'success',
+                            title: messages[i][1],
+                            showConfirmButton: true,
+                            timer: 5000
+                        });
+                    }
+                }
+            </script>
+        {% endif %}
+    {% endwith %}
+</head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZEEN+PvELKTA2r+hZU7Sp"
+          crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<body   >
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div >
+  <form action="/submit_recipe" method="POST">
+<div class="container mt-5" >
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card" >
+        <div class="card-header bg-primary text-white"  >
+          <h4 class="mb-0">Add Your Recipe</h4>
+        </div>
+        <div class="card-body" >
+          <form style="background-color:#FFC7CE;">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+             <div class="mb-3">
+              <label for="name" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="recipe-name" class="form-label">Recipe Name</label>
+              <input type="text" class="form-control" id="recipe-name" name="recipe-name" required>
+            </div>
+            <div class="mb-3">
+              <label for="ingredients" class="form-label">Ingredients</label>
+              <textarea class="form-control" id="ingredients" name="ingredients" rows="5" style="resize:none" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="step1" class="form-label">Step 1</label>
+              <textarea class="form-control" id="step1" name="step1" rows="5" style="resize:none" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="step2" class="form-label">Step 2</label>
+              <textarea class="form-control" id="step2" name="step2" rows="5" style="resize:none" ></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="step3" class="form-label">Step 3</label>
+              <textarea class="form-control" id="step3" name="step3" rows="5" style="resize:none"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="step4" class="form-label">Step 4</label>
+              <textarea class="form-control" id="step4" name="step4" rows="5" style="resize:none"></textarea>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit"   class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </form>
+</div>
+<script>
+function submitRecipe() {
+    $.ajax({
+        type: 'POST',
+        url: '/submit_recipe',
+        data: $('#recipe-form').serialize(),
+        success: function(response) {
+            alert('Recipe submitted successfully!');
+        },
+        error: function(error) {
+            alert('Error submitting recipe. Please try again later.');
+        }
+    });
+}
+</script>
+  
+  
+</body>
+</html>

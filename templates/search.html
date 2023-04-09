@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="UTF-8">
+    <title>Search</title>
+
+	<header>
+        {%include 'navbar.html'%}
+    </header>
+
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <script>
+            //displaying sweetalert using flash messages
+                var messages = {{ messages|tojson }};
+                for (var i = 0; i < messages.length; i++) {
+                    if (messages[i][0] === 'error') {
+                      Swal.fire({
+                            icon: 'error',
+                            showConfirmButton: false,
+                            title: messages[i][1],
+                            timer: 3000
+                        });
+                    }
+
+
+                }
+            </script>
+        {% endif %}
+    {% endwith %}
+
+
+
+</head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='search.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
+<body>
+
+<div class="main">
+  <h1>Search For Your Favourite <div class="roller">
+    <span id="rolltext">Dishes<br/>
+    Cuisines<br/>
+    Deserts<br/>
+    Drinks<br/>
+    </span>
+
+    </div>
+    </h1>
+
+  </div>
+
+
+<div id="cover">
+  <form method="POST" action="/result">
+    <div class="tb">
+      <div class="td"><input type="text" name="recipe-name" placeholder="Search" required ></div>
+      <div class="td" id="s-cover">
+        <button type="submit">
+          <div id="s-circle"></div>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+</html>
