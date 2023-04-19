@@ -1,8 +1,9 @@
 Name:Premkishan Suvarnkar
-Email:psuvarnkar3@gmail.com
+Email:premkishansuvarnkar3@gmail.com
 Recipe Name:Chicken Biryani
-Ingredients:All the neccesarry Ingredients
-Step 1:All Step1
-Step 2:All step2
-Step 3:All step3
-Step 4:All step4
+Ingredients:ALL INGREDIENTS
+Step 1:STEP !
+Step 2:STEP 2
+Step 3:STEP 3
+Step 4:STep 4
+Image:Chicken_Biryani.jpg

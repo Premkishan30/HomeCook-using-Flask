@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Explore Recipes!</title>
+    <header>{%include 'navbar.html'%}</header>
+</head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Display.css') }}">
+<body>
+{% for recipes in names %}
+<div class="card">
+  <div class="card-details">
+      {% if loop.index0 < imgs|length %}
+      <img src="{{ url_for('static', filename='Imgs/'+imgs[loop.index0]) }}" alt="Chimken" width="175" height="150">
+      {% endif %}
+    <p class="text-title">{{recipes}}</p>
+    <p class="text-body"></p>
+  </div>
+  <a class="card-button" href="{{ url_for('viewRecipe', recipe=recipes) }}">More info</a>
+</div>
+{% endfor %}
+
+</body>
+</html>

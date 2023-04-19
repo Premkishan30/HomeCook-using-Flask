@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Recipe</title>
+    {% include 'navbar.html' %}
+  </head>
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Recipe.css') }}">
+  <body>
+    <h1>Edit Recipe: {{ recipe_name }}</h1>
+    <form action="{{ url_for('editRecipe', recipe=recipe_name) }}" method="POST">
+      <div id="Ingredients" class="Ingredients">
+        <h2>Ingredients:</h2>
+        <textarea name="ingredients" rows="10" cols="50">{{ ingredients }}</textarea>
+      </div>
+      <div class="Step 1">
+        <h2>Step 1</h2>
+        <textarea name="step1" rows="10" cols="50">{{ step1 }}</textarea>
+      </div>
+      <div class="Step 2">
+        <h2>Step 2</h2>
+        <textarea name="step2" rows="10" cols="50">{{ step2 }}</textarea>
+      </div>
+      <div class="Step 3">
+        <h2>Step 3</h2>
+        <textarea name="step3" rows="10" cols="50">{{ step3 }}</textarea>
+      </div>
+      <div class="Step 4">
+        <h2>Step 4</h2>
+        <textarea name="step4" rows="10" cols="50">{{ step4 }}</textarea>
+      </div>
+      <input type="submit" value="Save Changes">
+    </form>
+  </body>
+</html>

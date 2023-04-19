@@ -1,8 +1,9 @@
-Name:Premkishan Suvarnkar
-Email:psuvarnkar3@gmail.com
+Name:Renuka Suvarnkar
+Email:premkishansuvarnkar4@gmail.com
 Recipe Name:Manchurian
-Ingredients:ALL
-Step 1:Step 1
-Step 2:Step 2
-Step 3:Steo 3
-Step 4:Spte 4
+Ingredients:asdddddddddddddd
+Step 1:asdddddddddddddd
+Step 2:asddddddddddddd
+Step 3:asdddddddddddddd
+Step 4:asdddddddddddd
+Image:Manchurian.jpg

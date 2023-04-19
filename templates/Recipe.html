@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>Your Searched Recipe</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Recipe.css') }}">
     {% include 'navbar.html' %}
   </head>
 
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Recipe.css') }}">
   <body>
-    <h1>{{ data_d["Recipe Name"] }}</h1>
-    <h2>By {{ data_d["Name"] }}</h2>
-    <h4>{{ data_d["Email"] }}</h4>
-    <div id="Ingredients" class="Ingredients">
-      <h2>Ingredients:</h2>
-      <h5>{{ data_d["Ingredients"] }}</h5>
+    <div class="container">
+      <div class="header">
+        <h1>{{ data_d["Recipe Name"] }}</h1>
+        <p>By {{ data_d["Name"] }}</p>
+        <p>{{ data_d["Email"] }}</p>
+      </div>
+
+      <div class="image">
+        <img src="{{ url_for('static', filename='Imgs/'+data_d['Image']) }}" alt="not displayed" width="300" height="300">
+      </div>
+
+      <div id="Ingredients" class="section">
+        <h2>Ingredients:</h2>
+        <ul>
+          {% for ingredient in data_d["Ingredients"].split(";") %}
+            <li>{{ ingredient }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Instructions:</h2>
+        {% for key, value in data_d.items() if key.startswith("Step") %}
+          <div class="step">
+            <h3>{{ key }}</h3>
+            <p>{{ value }}</p>
+          </div>
+        {% endfor %}
+      </div>
+
+
+        <a class="download-btn" href="{{ url_for('download') }}" class="button">Download Recipe</a>
+      <a class="download-btn" href="{{ url_for('editRecipe', recipe=data_d['Recipe Name']) }}" class="button">Edit Above Recipe</a>
+
+
     </div>
-    <div class="Step 1">
-      <h2>Step 1</h2>
-      <h4>{{ data_d["Step 1"] }}</h4>
-    </div>
-    <div class="Step 2">
-      <h2>Step 2</h2>
-      <h4>{{ data_d["Step 2"] }}</h4>
-    </div>
-    <div class="Step 3">
-      <h2>Step 3</h2>
-      <h4>{{ data_d["Step 3"] }}</h4>
-    </div>
-    <div class="Step 4">
-      <h2>Step 4</h2>
-      <h4>{{ data_d["Step 4"] }}</h4>
-    </div>
-    <a class="download" href="{{ url_for('download') }}">Download Recipe</a>
   </body>
 </html>
